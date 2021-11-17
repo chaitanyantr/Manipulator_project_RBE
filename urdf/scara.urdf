@@ -1,0 +1,23 @@
+<robot name="scara_robot">
+  <link name="link0">
+  	
+  </link>
+  <link name="link1" />
+  <link name="link2" />
+  <link name="link3" />
+
+  <joint name="joint1" type="revolute">
+    <parent link="link1"/>
+    <child link="link2"/>
+  </joint>
+
+  <joint name="joint2" type="revolute">
+    <parent link="link2"/>
+    <child link="link3"/>
+  </joint>
+
+  <joint name="joint3" type="prismatic">
+    <parent link="link3"/>
+    <child link="link4"/>
+  </joint>
+</robot>
