@@ -9,13 +9,14 @@
   <xacro:property name="height1" value="2" /> <!-- Link 1 -->
   <xacro:property name="height2" value="1" /> <!-- Link 2 -->
   <xacro:property name="height3" value="1" /> <!-- Link 3 -->
+  <xacro:property name="height4" value="0.5" /> <!-- Link 4 -->
   <xacro:property name="camera_link" value="0.05" /> <!-- Size of square 'camera' box -->
   <xacro:property name="axel_offset" value="0.05" /> <!-- Space btw top of beam and the each joint -->
 
   <!-- Import all Gazebo-customization elements, including Gazebo colors -->
-  <xacro:include filename="$(find rrbot_description)/urdf/rrbot.gazebo" />
+  <!--<xacro:include filename="$(find rrbot_description)/urdf/rrbot.gazebo" />-->
   <!-- Import Rviz colors -->
-  <xacro:include filename="$(find rrbot_description)/urdf/materials.xacro" />
+  <!--<xacro:include filename="$(find rrbot_description)/urdf/materials.xacro" />-->
 
   <!-- Used for fixing robot to Gazebo 'base_link' -->
   <link name="world"/>
@@ -90,7 +91,7 @@
   <joint name="joint2" type="continuous">
     <parent link="link2"/>
     <child link="link3"/>
-    <origin xyz="${height2 - axel_offset} 0 ${width *2 - axel_offset}" rpy="0 0 0"/>
+    <origin xyz="${height2 - axel_offset} 0 ${width  - axel_offset}" rpy="0 0 0"/>
     <axis xyz="0 0 1"/>
     <dynamics damping="0.7"/>
   </joint>
@@ -125,9 +126,9 @@
   <joint name="joint3" type="prismatic">
     <parent link="link3"/>
     <child link="link4"/>
-    <origin xyz="${height3 - axel_offset} 0 ${height3/2}" rpy="0 0 0"/>
+    <origin xyz="${height3 - axel_offset} 0 ${height4/2}" rpy="0 0 0"/>
     <axis xyz="0 0 1"/>
-    <limit lower = "-${height3/2}" upper = "${height3/2}" effort = "1" velocity="1"/>
+    <limit lower = "${height4}" upper = "0" effort = "1" velocity="1"/>
   </joint>
 
   <!-- Top Link -->
@@ -135,14 +136,14 @@
     <collision>
       <origin xyz="${axel_offset} 0 0 " rpy="0 0 0"/>
       <geometry>
-  <box size="${width} ${width} ${height3}"/>
+  <box size="${width} ${width} ${height4}"/>
       </geometry>
     </collision>
 
     <visual>
       <origin xyz="${axel_offset} 0 0 " rpy="0 0 0"/>
       <geometry>
-  <box size="${width} ${width} ${height3}"/>
+  <box size="${width} ${width} ${height4}"/>
       </geometry>
       <material name="orange"/>
     </visual>
