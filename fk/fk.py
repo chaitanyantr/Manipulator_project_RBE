@@ -19,7 +19,7 @@ def callback_joints(joint_data):
 	l1 = a1 = 1
 	l2 = a2 = 1
 	l3 = a3 = 0.5
-
+	
 
 	r11 = np.cos(j1)*np.cos(j2) - np.sin(j1)*np.sin(j2)
 	r12 = np.cos(j1)*np.sin(j2) - np.cos(j2)*np.sin(j1)
@@ -34,7 +34,7 @@ def callback_joints(joint_data):
 	r31 = 0
 	r32 = 0
 	r33 = 1
-	r34 = -a3
+	r34 = 2+a3
 
 	r41 = 0
 	r42 = 0
@@ -50,7 +50,7 @@ def callback_joints(joint_data):
 	gamma = round(gamma*180/np.pi, 2)
 
 	print('position',t[0:3, 3])
-	print('alpha,beta,gamma',alpha,beta,gamma)
+	#print('alpha,beta,gamma',alpha,beta,gamma)
 
 
 	
@@ -61,7 +61,10 @@ def listener():
 	rospy.Subscriber("/joint_states", JointState, callback_joints)
 
 	# spin() simply keeps python from exiting until this node is stopped
+	rate = rospy.Rate(100)
+	rate.sleep()
 	rospy.spin()
+	# rate = rospy.Rate(10)
 
 if __name__ == '__main__':
 	listener()
