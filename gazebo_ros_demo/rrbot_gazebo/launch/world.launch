@@ -32,4 +32,7 @@
   <!-- ros_control rrbot launch file -->
   <!--include file="$(find rrbot_control)/launch/rrbot_control.launch" /-->
 
+  <!-- Show in Rviz   -->
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find rrbot_description)/launch/rrbot.rviz"/>
+
 </launch>
