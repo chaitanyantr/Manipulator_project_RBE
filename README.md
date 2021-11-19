@@ -19,8 +19,8 @@ if you want to run in your pc
 >rosrun rrbot_control ik.py
 
 Make sure you do
-1-
+ ----1-
 > source devel/setup.bash
-2-
+ ----2-
 >python files as executing files(right click the file and go to permission and allow it as executing file)
 
