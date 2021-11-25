@@ -1,3 +1,11 @@
+# Project-2
+
+> Followed the gazebo tutorials
+> added motor plugins for 3 joints in scara.xacro
+> added gazebo pluggins in launch file and added joint3
+
+
+
 # Manipulator_project_RBE
 
 if you want to run in your pc
