@@ -4,7 +4,7 @@
 > catkin_make
 > Start the controllers using roslaunch
 
-Test the RRBot controlled by ros_control by running the following:
+Test the Scara controlled by ros_control by running the following:
 
 # Start the scara simulation:
 
