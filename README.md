@@ -8,11 +8,11 @@ Test the RRBot controlled by ros_control by running the following:
 
 # Start the scara simulation:
 
-> roslaunch rrbot_gazebo rrbot_world.launch
+> roslaunch scara_gazebo scara_world.launch
 
-# Load the controllers for the two joints by running the second launch file:
+# Load the controllers for the three joints by running the second launch file:
 
-> roslaunch rrbot_control rrbot_control.launch
+> roslaunch scara_control scara_control.launch
 
 # Using service calls manually
 
@@ -20,16 +20,16 @@ If you first load the scara_control.yaml files to the parameter server, you coul
 
 # Load the controllers:
 
-rosservice call /rrbot/controller_manager/load_controller "name: 'joint1_position_controller'"
-rosservice call /rrbot/controller_manager/load_controller "name: 'joint2_position_controller'"
+rosservice call /scara/controller_manager/load_controller "name: 'joint1_position_controller'"
+rosservice call /scara/controller_manager/load_controller "name: 'joint2_position_controller'"
 
 # Start the controllers:
 
-rosservice call /rrbot/controller_manager/switch_controller "{start_controllers: ['joint1_position_controller','joint2_position_controller'], stop_controllers: [], strictness: 2}"
+rosservice call /scara/controller_manager/switch_controller "{start_controllers: ['joint1_position_controller','joint2_position_controller'], stop_controllers: [], strictness: 2}"
 
 # Stop the controllers:
 
-rosservice call /rrbot/controller_manager/switch_controller "{start_controllers: [], stop_controllers: ['joint1_position_controller','joint2_position_controller'], strictness: 2}"
+rosservice call /scara/controller_manager/switch_controller "{start_controllers: [], stop_controllers: ['joint1_position_controller','joint2_position_controller'], strictness: 2}"
 
 > Followed the gazebo tutorials
 > added motor plugins for 3 joints in scara.xacro
