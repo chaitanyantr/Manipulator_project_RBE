@@ -6,23 +6,28 @@
 
 Test the RRBot controlled by ros_control by running the following:
 
-# Start the RRBot simulation:
+# Start the scara simulation:
 
-roslaunch rrbot_gazebo rrbot_world.launch
-Load the controllers for the two joints by running the second launch file:
+> roslaunch rrbot_gazebo rrbot_world.launch
 
-roslaunch rrbot_control rrbot_control.launch
-Using service calls manually
-If you first load the rrbot_control.yaml files to the parameter server, you could load the controllers manually through service requests. We'll include them here for reference though we usually prefer roslaunch:
+# Load the controllers for the two joints by running the second launch file:
 
-Load the controllers:
+> roslaunch rrbot_control rrbot_control.launch
+
+# Using service calls manually
+
+If you first load the scara_control.yaml files to the parameter server, you could load the controllers manually through service requests. We'll include them here for reference though we usually prefer roslaunch:
+
+# Load the controllers:
 
 rosservice call /rrbot/controller_manager/load_controller "name: 'joint1_position_controller'"
 rosservice call /rrbot/controller_manager/load_controller "name: 'joint2_position_controller'"
-Start the controllers:
+
+# Start the controllers:
 
 rosservice call /rrbot/controller_manager/switch_controller "{start_controllers: ['joint1_position_controller','joint2_position_controller'], stop_controllers: [], strictness: 2}"
-Stop the controllers:
+
+# Stop the controllers:
 
 rosservice call /rrbot/controller_manager/switch_controller "{start_controllers: [], stop_controllers: ['joint1_position_controller','joint2_position_controller'], strictness: 2}"
 
