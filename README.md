@@ -1,5 +1,8 @@
 # Project-2
 
+> please use catkin_scara.zip package to build on your PC.
+> catkin_make
+
 > Followed the gazebo tutorials
 > added motor plugins for 3 joints in scara.xacro
 > added gazebo pluggins in launch file and added joint3
