@@ -29,7 +29,7 @@ rosservice call /scara/controller_manager/switch_controller "{start_controllers:
 
 # Stop the controllers:
 
-rosservice call /scara/controller_manager/switch_controller "{start_controllers: [], stop_controllers: ['joint1_position_controller','joint2_position_controller'], strictness: 2}"
+> rosservice call /scara/controller_manager/switch_controller "{start_controllers: [], stop_controllers: ['joint1_position_controller','joint2_position_controller'], strictness: 2}"
 
 > Followed the gazebo tutorials
 > added motor plugins for 3 joints in scara.xacro
