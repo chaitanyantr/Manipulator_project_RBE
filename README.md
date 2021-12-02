@@ -4,9 +4,17 @@
 > added motor plugins for 3 joints in scara.xacro
 > added gazebo pluggins in launch file and added joint3
 
+> rostopic pub -1 /rrbot/joint1_position_controller/command std_msgs/Float64 "data: 1.5"
+> rostopic pub -1 /rrbot/joint2_position_controller/command std_msgs/Float64 "data: 1.5"
+> rostopic pub -1 /rrbot/joint3_position_controller/command std_msgs/Float64 "data: 1.0"
+
+
 
 
 # Manipulator_project_RBE
+
+# -----------------------------------------------------------------------------------------#
+# Project-1
 
 if you want to run in your pc
 
